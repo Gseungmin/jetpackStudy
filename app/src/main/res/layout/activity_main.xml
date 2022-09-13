@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn1"
-        android:text="button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn2"
-        android:text="button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+        <Button
+            android:id="@+id/btn1"
+            android:text="button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Button>
 
-    <Button
-        android:id="@+id/btn3"
-        android:text="button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+        <Button
+            android:id="@+id/btn2"
+            android:text="button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Button>
 
-</LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/frameArea"
+            android:name="com.example.jetpackstudy.BlankFragment1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.fragment.app.FragmentContainerView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

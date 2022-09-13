@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn1"
-        android:text="button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn2"
-        android:text="button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+            <EditText
+                android:id="@+id/inputArea"
+                android:hint="0"
+                android:textSize="50sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn3"
-        android:text="button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+            <Button
+                android:id="@+id/btnArea"
+                android:text="btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/resultArea1"
+                android:text="0"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/resultArea2"
+                android:text="0"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

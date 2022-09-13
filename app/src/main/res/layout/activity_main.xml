@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<layout>
 
-    <Button
-        android:id="@+id/btn1"
-        android:text="button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+    <data>
+        <variable
+            name="person"
+            type="com.example.jetpackstudy.Person" />
+    </data>
 
-    <Button
-        android:id="@+id/btn2"
-        android:text="button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn3"
-        android:text="button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Button>
+        <!--동적 데이터 바인딩-->
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.name}"
+            android:textSize="50sp"></TextView>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(person.age)}"
+            android:textSize="50sp"></TextView>
+
+        <!--로직 추가 가능-->
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.age > 30 ? `나이 많음` : `나이 적음`}"
+            android:textSize="50sp"></TextView>
+
+        <Button
+            android:text="btn"
+            android:onClick="btnClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Button>
+    </LinearLayout>
+</layout>

@@ -14,7 +14,13 @@
         android:theme="@style/Theme.JetpackStudy"
         tools:targetApi="31">
         <activity
+            android:name=".viewBinding.ViewBindingActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".dataBinding.DataBindingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

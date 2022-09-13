@@ -1,14 +1,22 @@
-package com.example.jetpackstudy
+package com.example.jetpackstudy.dataBinding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.jetpackstudy.R
+import com.example.jetpackstudy.databinding.ActivityDataBindingBinding
+import com.example.jetpackstudy.databinding.ActivityViewBindingBinding
+import com.example.jetpackstudy.viewBinding.CustomViewBindingAdapter
 
-class MainActivity : AppCompatActivity() {
+class DataBindingActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityDataBindingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding)
 
         val array = mutableListOf<String>()
         array.add("a")
@@ -32,9 +40,9 @@ class MainActivity : AppCompatActivity() {
         array.add("d")
         array.add("e")
 
-        val customAdapter = CustomAdapter(array)
+        val customAdapter = CustomDataBindingAdapter(array)
 
-        val rv = findViewById<RecyclerView>(R.id.rv)
+        val rv = binding.rv
         rv.adapter = customAdapter
         rv.layoutManager = LinearLayoutManager(this)
     }

@@ -32,6 +32,10 @@ class BlankFragment2 : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_blankFragment3)
         }
 
+        view.findViewById<Button>(R.id.btn1).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_blankFragment1)
+        }
+
         return view
         }
 }

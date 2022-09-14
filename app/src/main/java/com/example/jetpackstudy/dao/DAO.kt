@@ -1,6 +1,7 @@
-package com.example.jetpackstudy
+package com.example.jetpackstudy.dao
 
 import androidx.room.*
+import com.example.jetpackstudy.entity.Entity
 
 //Repository 역할
 @Dao

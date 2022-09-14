@@ -22,8 +22,12 @@ class BlankFragment1 : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_blank1, container, false)
 
+        //데이터 전송
+        val action = BlankFragment1Directions.actionBlankFragment1ToBlankFragment2("abcdef")
+
         view.findViewById<Button>(R.id.btn1).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_blankFragment1_to_blankFragment2)
+//            Navigation.findNavController(view).navigate(R.id.action_blankFragment1_to_blankFragment2, bundle)
+            Navigation.findNavController(view).navigate(action)
         }
 
         return view

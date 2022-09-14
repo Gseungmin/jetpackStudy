@@ -22,6 +22,10 @@
         <action
             android:id="@+id/action_blankFragment2_to_blankFragment3"
             app:destination="@id/blankFragment3" />
+        <argument
+            android:name="key"
+            app:argType="string"
+            android:defaultValue="디폴트값" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment3"

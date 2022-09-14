@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.jetpackstudy.api.MyApi
 import com.example.jetpackstudy.api.RetrofitInstance
 import com.example.jetpackstudy.model.Plant
+import com.example.jetpackstudy.repository.Repository
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    //해당 인스턴스는 MyApi를 사용할 것 선언
-    val retrofitInstance : MyApi = RetrofitInstance.getInstance().create(MyApi::class.java)
+    private val repository = Repository()
 
     private val _result = MutableLiveData<List<Plant>>()
     val result : LiveData<List<Plant>>
@@ -20,7 +20,7 @@ class MainViewModel : ViewModel() {
 
     fun getAllData() {
         viewModelScope.launch {
-            _result.value = retrofitInstance.getAllPlants()
+            _result.value = repository.getAllData()
         }
     }
 }

@@ -10,7 +10,7 @@ interface MyApi {
     suspend fun getPost1() : DataDto
 
     @GET("posts")
-    suspend fun getPosts() : MutableList<DataDto>
+    suspend fun getPosts() : List<DataDto>
 
     //동적으로 Get
     @GET("posts/{number}")

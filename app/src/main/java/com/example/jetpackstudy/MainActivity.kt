@@ -6,6 +6,9 @@ import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.jetpackstudy.adapter.RVAdapter
 import com.example.jetpackstudy.api.MyApi
 import com.example.jetpackstudy.api.RetrofitInstance
 import com.example.jetpackstudy.dto.DataDto
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getPost1()
         viewModel.getPostNumber(3)
+        viewModel.getPosts()
 
         val area1 = findViewById<TextView>(R.id.area1)
         val area2 = findViewById<TextView>(R.id.area2)
@@ -42,6 +46,14 @@ class MainActivity : AppCompatActivity() {
         //변경이 되면 실행을 의미
         viewModel.liveWord2.observe(this, Observer {
             area2.text = it.toString()
+        })
+
+        val rv = findViewById<RecyclerView>(R.id.rv)
+
+        viewModel.liveWord3.observe(this, Observer {
+            val rvAdapter = RVAdapter(it as ArrayList<DataDto> /* = java.util.ArrayList<com.example.jetpackstudy.dto.DataDto> */)
+            rv.adapter = rvAdapter
+            rv.layoutManager = LinearLayoutManager(this)
         })
     }
 }

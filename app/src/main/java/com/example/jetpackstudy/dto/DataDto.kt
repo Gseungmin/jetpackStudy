@@ -1,4 +1,4 @@
-package com.example.jetpackstudy
+package com.example.jetpackstudy.dto
 
 //dto 역할
 data class DataDto (

@@ -3,6 +3,13 @@ package com.example.jetpackstudy
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.jetpackstudy.api.MyApi
+import com.example.jetpackstudy.api.RetrofitInstance
+import com.example.jetpackstudy.dto.DataDto
+import com.example.jetpackstudy.viewmodel.MainViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,43 +19,29 @@ import retrofit2.Response
 // https://jsonplaceholder.typicode.com/posts
 // https://jsonplaceholder.typicode.com/posts/3
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val api = RetrofitInstance.getInstance().create(MyApi::class.java)
-        api.getPost1().enqueue(object : Callback<DataDto>{
-            //응답 성공시
-            override fun onResponse(call: Call<DataDto>, response: Response<DataDto>) {
-                Log.d("API1", response.body().toString())
-            }
-            //응답 실패시
-            override fun onFailure(call: Call<DataDto>, t: Throwable) {
-                Log.d("API1", "fail")
-            }
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        viewModel.getPost1()
+        viewModel.getPostNumber(3)
+
+        val area1 = findViewById<TextView>(R.id.area1)
+        val area2 = findViewById<TextView>(R.id.area2)
+
+        //변경이 되면 실행을 의미
+        viewModel.liveWord1.observe(this, Observer {
+            area1.text = it.toString()
         })
 
-        api.getPosts().enqueue(object : Callback<MutableList<DataDto>>{
-            override fun onResponse(
-                call: Call<MutableList<DataDto>>,
-                response: Response<MutableList<DataDto>>
-            ) {
-                Log.d("API2", response.body().toString())
-            }
-            override fun onFailure(call: Call<MutableList<DataDto>>, t: Throwable) {
-                Log.d("API2", "fail")
-            }
-        })
-
-        api.getPostNum(5).enqueue(object : Callback<DataDto>{
-            //응답 성공시
-            override fun onResponse(call: Call<DataDto>, response: Response<DataDto>) {
-                Log.d("API3", response.body().toString())
-            }
-            //응답 실패시
-            override fun onFailure(call: Call<DataDto>, t: Throwable) {
-                Log.d("API3", "fail")
-            }
+        //변경이 되면 실행을 의미
+        viewModel.liveWord2.observe(this, Observer {
+            area2.text = it.toString()
         })
     }
 }

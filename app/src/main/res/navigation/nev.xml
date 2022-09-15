@@ -33,6 +33,10 @@
         <action
             android:id="@+id/action_blankFragment2_to_blankFragment1"
             app:destination="@id/blankFragment1" />
+        <argument
+            android:name="cat"
+            app:argType="string"
+            android:defaultValue="Cat" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment3"

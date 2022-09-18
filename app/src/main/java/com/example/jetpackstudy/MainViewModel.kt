@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel(num : Int) : ViewModel() {
 
-    var count = 0
+    var count = num
     fun plus() {
         count++
     }
